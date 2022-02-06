@@ -10,7 +10,7 @@ chown -R $(id -u):$(id -g) ~/.ssh
 # Creates the cron script
 cat << EOF > /run-rsync.sh
 set -e
-rsync ${RSYNC_OPTIONS}
+pgrep rsync || rsync ${RSYNC_OPTIONS}
 EOF
 chmod +x /run-rsync.sh
 
